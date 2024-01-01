@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\ShowNotes;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +14,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get(
+    '/', function () {
+        return view('welcome');
+    }
+);
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::middleware(
+    ['auth:sanctum', config('jetstream.auth_session'), 'verified']
+)->group(
+    function () {
+        Route::get(
+            '/dashboard', function () {
+                return view('dashboard');
+            }
+        )->name('dashboard');
+    }
+)
+->name('notes.')->prefix('notes')->group(
+    function () {
+         Route::get('/all', ShowNotes::class)->name('all');
+//         Route::get('/note/{id}', ShowNote::class)->name('details');
+        // Route::get('/create', CreateNoteController::class)->name('create');
+        // Route::get('/edit/{note}', EditNoteController::class)->name('edit');
+        // Route::post('/store/{note?}', StoreNoteController::class)->name('store');
+        // Route::post('/delete/{note}', DeleteNoteController::class)->name('delete');
+    }
+);

@@ -18,10 +18,10 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased w-3/5">
         <x-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen min-w-full bg-gray-100">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
