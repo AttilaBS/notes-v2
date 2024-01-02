@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\ShowNotes;
+use App\Livewire\ShowNoteDetails;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,7 +35,7 @@ Route::middleware(
 ->name('notes.')->prefix('notes')->group(
     function () {
          Route::get('/all', ShowNotes::class)->name('all');
-//         Route::get('/note/{id}', ShowNote::class)->name('details');
+         Route::get('/details/{note}', ShowNoteDetails::class)->name('details');
         // Route::get('/create', CreateNoteController::class)->name('create');
         // Route::get('/edit/{note}', EditNoteController::class)->name('edit');
         // Route::post('/store/{note?}', StoreNoteController::class)->name('store');

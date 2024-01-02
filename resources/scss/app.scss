@@ -124,6 +124,10 @@ body, html {
     margin-bottom: 2rem;
 }
 
+.note-card:last-of-type {
+    margin-bottom: 5rem;
+}
+
 .note-show {
     display: flex;
     flex-direction: column;

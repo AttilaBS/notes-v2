@@ -4,17 +4,15 @@ namespace App\Livewire;
 
 use App\Models\Note;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class ShowNotes extends Component
 {
-    /**
-     * @return View
-     */
-    public function render()
+    public function render(): View
     {
         return view(
             'livewire.show-notes',
-            ['notes' => Note::orderBy('created_at', 'desc')->paginate()]
+            ['notes' => Note::orderBy('created_at', 'desc')->paginate(25)]
         );
     }
 }
